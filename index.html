@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taranjit Singh Malhotra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0c0c0c;--bg2:#141414;--surface:#1e1e1e;
+      --border:rgba(255,255,255,0.08);--bh:rgba(255,255,255,0.18);
+      --text:#f0ede6;--muted:#7a7570;
+      --gold:#c8a96e;--green:#8db8a0;
+      --serif:'Instrument Serif',Georgia,serif;
+      --sans:'DM Sans',system-ui,sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:rgba(12,12,12,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--serif);font-size:1.05rem;color:var(--gold);text-decoration:none}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:.07em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
+    .hero-wrap{max-width:1100px;margin:0 auto;position:relative}
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:8rem 3rem 5rem;}
+    .hero-glow{position:fixed;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,.055) 0%,transparent 65%);top:-250px;right:-150px;pointer-events:none;z-index:0}
+    .hero-inner{position:relative;z-index:1}
+    .hero-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+    .hero-label::before{content:'';display:inline-block;width:28px;height:1px;background:var(--gold)}
+    h1{font-family:var(--serif);font-size:clamp(3rem,5.5vw,5.2rem);font-weight:400;line-height:1.06;margin-bottom:1.5rem;letter-spacing:-.025em}
+    h1 em{font-style:italic;color:var(--gold)}
+    .hero-desc{font-size:.98rem;color:var(--muted);max-width:500px;line-height:1.82;margin-bottom:2.5rem}
+    .hero-desc strong{color:var(--text);font-weight:400}
+    .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+    .hero-deco{position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
+    .chips-wrap{display:flex;flex-wrap:wrap;gap:14px;align-content:center;justify-content:center;padding:1rem}
+    .fchip{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:24px;font-size:12px;letter-spacing:.05em;font-family:var(--sans);background:rgba(14,12,8,.85);backdrop-filter:blur(12px);animation:bob 3.5s ease-in-out var(--d,0s) infinite;white-space:nowrap;}
+    .fchip.gold{color:#c8a96e;border:1px solid rgba(200,169,110,.28)}
+    .fchip.teal{color:#8db8a0;border:1px solid rgba(141,184,160,.25)}
+    .fchip.soft{color:rgba(200,169,110,.65);border:1px solid rgba(200,169,110,.14)}
+    .fcdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+    .gold-d{background:#c8a96e}.teal-d{background:#8db8a0}.soft-d{background:rgba(200,169,110,.5)}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:.65rem 1.4rem;border-radius:2px;font-family:var(--sans);font-size:12px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all .2s;border:none}
+    .btn-primary{background:var(--gold);color:#0c0c0c}.btn-primary:hover{background:#d4b87c}
+    .btn-outline{background:transparent;color:var(--text);border:1px solid var(--bh)}.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+    .hero-scroll{position:absolute;bottom:2rem;left:3rem;display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;z-index:1}
+    .scroll-line{width:40px;height:1px;background:var(--bh);position:relative;overflow:hidden}
+    .scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold);animation:slide 2.2s ease-in-out infinite}
+    @keyframes slide{0%{left:-100%}100%{left:100%}}
+    section{padding:6rem 3rem;position:relative;z-index:1}
+    .slabel{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:flex;align-items:center;gap:8px}
+    .slabel::before{content:'';display:inline-block;width:18px;height:1px;background:var(--gold)}
+    h2{font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:400;line-height:1.15;margin-bottom:3rem;letter-spacing:-.01em}
+    .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:6rem;align-items:start}
+    .about-blocks{display:flex;flex-direction:column;gap:1.8rem}
+    .ab{border-left:1px solid var(--border);padding-left:1.4rem}
+    .ab-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+    .ab p{font-size:.9rem;color:var(--muted);line-height:1.72}
+    .ab p strong{color:var(--text);font-weight:400}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+    .stat{background:var(--bg);padding:1.5rem}
+    .stat-num{font-family:var(--serif);font-size:2.2rem;color:var(--gold);line-height:1;margin-bottom:.3rem}
+    .stat-label{font-size:11px;color:var(--muted);letter-spacing:.04em}
+    .projects-section{background:var(--bg2)}
+    .projects-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+    .pc{background:var(--bg2);padding:2rem;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
+    .pc:hover{background:var(--surface)}
+    .pc::after{content:'\u2197';position:absolute;top:1.5rem;right:1.5rem;color:var(--muted);font-size:1.1rem;transition:color .2s,transform .2s}
+    .pc:hover::after{color:var(--gold);transform:translate(2px,-2px)}
+    .pnum{font-size:11px;color:var(--muted);letter-spacing:.1em;margin-bottom:1.2rem}
+    .ptitle{font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:.6rem;line-height:1.3}
+    .pdesc{font-size:.87rem;color:var(--muted);line-height:1.65;margin-bottom:1.5rem}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{padding:3px 10px;background:rgba(200,169,110,.1);color:var(--gold);font-size:11px;letter-spacing:.04em;border-radius:1px}
+    .tg{background:rgba(141,184,160,.1);color:var(--green)}
+    .exp-inner{max-width:760px;margin:0 auto}
+    .exp-item{display:grid;grid-template-columns:140px 1fr;gap:2.5rem;padding:2rem 0;border-bottom:1px solid var(--border)}
+    .exp-item:last-child{border-bottom:none}
+    .exp-meta{font-size:12px;color:var(--muted);letter-spacing:.04em;padding-top:3px}
+    .exp-year{display:block;color:var(--gold);margin-bottom:.3rem}
+    .exp-title{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.2rem}
+    .exp-co{font-size:13px;color:var(--green);margin-bottom:.8rem}
+    .exp-desc{font-size:.87rem;color:var(--muted);line-height:1.65}
+    .skills-section{background:var(--bg2)}
+    .skills-inner{max-width:1100px;margin:0 auto}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+    .sg{background:var(--bg2);padding:1.5rem}
+    .sg-title{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+    .sg ul{list-style:none}
+    .sg li{font-size:13px;color:var(--muted);padding:3px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+    .sg li:last-child{border-bottom:none}
+    .sg li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+    .contact-inner{max-width:760px;margin:0 auto;text-align:center}
+    .contact-inner h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:1rem}
+    .contact-inner p{color:var(--muted);margin-bottom:2.5rem;font-size:1rem}
+    .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);position:relative;z-index:1}
+    .fi{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+    .fi.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:900px){
+      nav{padding:1rem 1.5rem}.nav-links{display:none}
+      .hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem}
+      .hero-deco{display:none}
+      section{padding:4rem 1.5rem}
+      .about-inner{grid-template-columns:1fr;gap:3rem}
+      .exp-item{grid-template-columns:1fr;gap:.4rem}
+      .projects-grid{grid-template-columns:1fr}
+      footer{flex-direction:column;gap:.5rem;text-align:center}
+      .hero-scroll{display:none}
+    }
+  </style>
+</head>
+<body>
+<div class="hero-glow"></div>
+<nav>
+  <a href="#" class="nav-logo">Taranjit Singh Malhotra</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="hero-wrap">
+  <div class="hero">
+    <div class="hero-inner fi">
+      <div class="hero-label">Product Manager &amp; Builder</div>
+      <h1>I turn messy<br/>problems into<br/><em>shipped products</em></h1>
+      <p class="hero-desc">CS + AI student at Chitkara University, graduating 2026. <strong>Cloud Associate at ZopDev</strong> &mdash; FinOps B2B SaaS. I research markets, build GTM systems, and ship full-stack tools. Looking for <strong>APM / Product roles</strong> where execution matters.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">See My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-deco fi" style="transition-delay:.2s">
+      <div class="chips-wrap">
+        <div class="fchip gold" style="--d:0s"><span class="fcdot gold-d"></span>APM 2026</div>
+        <div class="fchip teal" style="--d:.4s"><span class="fcdot teal-d"></span>FinOps</div>
+        <div class="fchip soft" style="--d:.8s"><span class="fcdot soft-d"></span>Builder</div>
+        <div class="fchip teal" style="--d:1.1s"><span class="fcdot teal-d"></span>Open to roles</div>
+        <div class="fchip gold" style="--d:.6s"><span class="fcdot gold-d"></span>React / Node.js</div>
+        <div class="fchip soft" style="--d:1.4s"><span class="fcdot soft-d"></span>GTM Automation</div>
+        <div class="fchip teal" style="--d:.2s"><span class="fcdot teal-d"></span>Cloud / SaaS</div>
+        <div class="fchip gold" style="--d:1s"><span class="fcdot gold-d"></span>Graduating 2026</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll to explore</div>
+</div>
+<section id="about">
+  <div class="about-inner fi">
+    <div>
+      <div class="slabel">About</div>
+      <h2>Product-first thinking,<br/>engineering depth</h2>
+      <div class="about-blocks">
+        <div class="ab"><div class="ab-label">Who I am</div><p>Final-year <strong>B.E. Computer Science &amp; Engineering (AI)</strong> student at <strong>Chitkara University</strong>, graduating 2026. I build full-stack products, run GTM operations, and think in systems &mdash; not just features.</p></div>
+        <div class="ab"><div class="ab-label">Current Role</div><p><strong>Cloud Associate at ZopDev / ZopNight</strong> &mdash; a FinOps B2B SaaS startup focused on cloud cost optimization. I own GTM research, outbound systems, and product documentation. Real targets, real pipeline.</p></div>
+        <div class="ab"><div class="ab-label">Builder Track Record</div><p>Shipped <strong>Ad War Room</strong> &mdash; a full-stack competitive intelligence dashboard tracking 27 competitors across Meta ads for 3 D2C health brands. Co-founded <strong>Food Holic</strong>, a bootstrapped cloud kitchen. I don't wait for permission to build.</p></div>
+        <div class="ab"><div class="ab-label">What I'm Looking For</div><p><strong>APM, Product Analyst, or Product Intern</strong> roles for 2026. Best fit: early-stage SaaS, FinOps, or consumer tech where research, speed, and cross-functional ownership matter.</p></div>
+      </div>
+    </div>
+    <div>
+      <div class="stat-grid">
+        <div class="stat"><div class="stat-num">27</div><div class="stat-label">Competitors tracked in Ad War Room</div></div>
+        <div class="stat"><div class="stat-num">3</div><div class="stat-label">D2C brands served</div></div>
+        <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Years building &amp; shipping</div></div>
+        <div class="stat"><div class="stat-num">V2</div><div class="stat-label">Ad War Room on Vercel</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="projects" class="projects-section">
+  <div style="max-width:1100px;margin:0 auto" class="fi"><div class="slabel">Work</div><h2>Selected projects</h2></div>
+  <div class="projects-grid fi">
+    <a href="https://ad-war-room.vercel.app" target="_blank" rel="noopener" class="pc"><div class="pnum">01 &mdash; Product Intelligence</div><div class="ptitle">Ad War Room</div><p class="pdesc">Full-stack competitive ad intelligence dashboard tracking Meta ads across 27 competitors for 3 D2C health brands &mdash; Man Matters, BeBodywise, Little Joys. Features a 3-step wizard, Reddit gap analysis, keyword highlighting, and AI video script generation via Gemini 1.5 Flash.</p><div class="tags"><span class="tag">React / Vite</span><span class="tag">Node.js</span><span class="tag">SQLite / Turso</span><span class="tag">Gemini 1.5 Flash</span><span class="tag tg">Live ↗</span></div></a>
+    <a href="https://github.com/Taran-25/Posture-IQ" target="_blank" rel="noopener" class="pc"><div class="pnum">02 &mdash; PM / Design</div><div class="ptitle">PostureIQ</div><p class="pdesc">Cloud Security Posture Dashboard &mdash; turned a PM assignment into a polished Figma Make prototype with drawer layouts, live chart data, and a 3-minute storytelling-first walkthrough video. Every annotation justifies a product decision.</p><div class="tags"><span class="tag">Figma</span><span class="tag">Product Design</span><span class="tag">Cloud Security</span><span class="tag tg">Prototype Live</span></div></a>
+    <a href="https://github.com/Taran-25" target="_blank" rel="noopener" class="pc"><div class="pnum">03 &mdash; GTM Automation</div><div class="ptitle">ZopNight GTM System</div><p class="pdesc">End-to-end GTM automation built with Clay, Zoho CRM, and Instantly. Designed WhatsApp automation flows, B2B outreach sequences for SAP-heavy FMCG accounts (Parle Agro, Heritage Foods), and the WURAG editorial framework.</p><div class="tags"><span class="tag">Clay</span><span class="tag">Zoho CRM</span><span class="tag">Instantly</span><span class="tag tg">In Production</span></div></a>
+    <a href="https://github.com/Taran-25" target="_blank" rel="noopener" class="pc"><div class="pnum">04 &mdash; Food Tech</div><div class="ptitle">Food Holic</div><p class="pdesc">Co-founded a bootstrapped cloud kitchen from scratch. Handled supply chain, delivery platform integrations, and customer retention &mdash; first 100 orders, first real lesson in product-market fit and unit economics.</p><div class="tags"><span class="tag">Operations</span><span class="tag">Unit Economics</span><span class="tag">Growth</span><span class="tag tg">Founded</span></div></a>
+  </div>
+</section>
+<section id="experience">
+  <div class="exp-inner fi">
+    <div class="slabel">Timeline</div><h2>Experience</h2>
+    <div class="exp-item"><div class="exp-meta"><span class="exp-year">2024 &mdash; Now</span>Full-time</div><div><div class="exp-title">Cloud Associate &mdash; GTM &amp; Product Research</div><div class="exp-co">ZopDev / ZopNight &middot; FinOps B2B SaaS</div><p class="exp-desc">Own outbound GTM systems, competitive research, and automation pipelines for a cloud cost optimization platform. Shipped blog content strategy, Zoho CRM workflows, and multi-channel outreach sequences targeting SAP-heavy enterprise FMCG accounts.</p></div></div>
+    <div class="exp-item"><div class="exp-meta"><span class="exp-year">2022 &mdash; 2024</span>Co-Founder</div><div><div class="exp-title">Co-Founder</div><div class="exp-co">Food Holic &middot; Cloud Kitchen</div><p class="exp-desc">Bootstrapped a cloud kitchen from concept to operations. Menu engineering, platform listings, delivery logistics, and customer feedback loops &mdash; built early instincts for retention, pricing, and what customers actually want vs. what they say.</p></div></div>
+    <div class="exp-item"><div class="exp-meta"><span class="exp-year">2022 &mdash; 2026</span>Education</div><div><div class="exp-title">B.E. Computer Science &amp; Engineering (AI)</div><div class="exp-co">Chitkara University</div><p class="exp-desc">Graduating 2026. Treated university as a launchpad &mdash; shipped independent projects, ran a startup, and took on a real GTM role alongside coursework. AI/ML, cloud infrastructure, and full-stack development as core technical foundations.</p></div></div>
+  </div>
+</section>
+<section class="skills-section">
+  <div class="skills-inner fi">
+    <div class="slabel">Stack</div><h2>What I work with</h2>
+    <div class="skills-grid">
+      <div class="sg"><div class="sg-title">Product</div><ul><li>User Research</li><li>PRD Writing</li><li>Figma / Prototyping</li><li>OKR Frameworks</li><li>GTM Strategy</li></ul></div>
+      <div class="sg"><div class="sg-title">Frontend</div><ul><li>React / Vite</li><li>JavaScript / TS</li><li>HTML / CSS</li><li>Tailwind CSS</li></ul></div>
+      <div class="sg"><div class="sg-title">Backend &amp; Data</div><ul><li>Node.js / Express</li><li>SQLite / Turso</li><li>REST APIs</li><li>Python</li></ul></div>
+      <div class="sg"><div class="sg-title">GTM &amp; Automation</div><ul><li>Clay</li><li>Zoho CRM</li><li>Instantly</li><li>WhatsApp Automation</li><li>Content Strategy</li></ul></div>
+      <div class="sg"><div class="sg-title">Cloud &amp; Infra</div><ul><li>Vercel / Render</li><li>FinOps Concepts</li><li>Cloud Cost Optimization</li><li>Posture Management</li></ul></div>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="contact-inner fi">
+    <div class="slabel" style="justify-content:center">Contact</div>
+    <h2>Let's build something</h2>
+    <p>Open to APM, Product Analyst, and Product Intern roles for 2026.<br/>If you're building in FinOps, SaaS, or consumer tech &mdash; I'd love to talk.</p>
+    <div class="contact-links">
+      <a href="mailto:taranmalhotra8@gmail.com" class="btn btn-primary">taranmalhotra8@gmail.com</a>
+      <a href="tel:+916284341486" class="btn btn-outline">+91 62843 41486</a>
+      <a href="https://www.linkedin.com/in/taranjit-singh-malhotra-63292934a/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+      <a href="https://github.com/Taran-25" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+      <a href="Taranjit_Singh_Malhotra_Resume.pdf" download="Taranjit_Singh_Malhotra_Resume.pdf" class="btn btn-outline" style="border-color:rgba(200,169,110,.38);color:var(--gold)">&#8595; Resume</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <span>&copy; 2026 Taranjit Singh Malhotra</span>
+  <span>CS + AI &middot; Chitkara University, Punjab</span>
+</footer>
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting)n.target.classList.add('visible')})},{threshold:.08});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
